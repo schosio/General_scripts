@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # path for map file
-map_file=$(finalf.txt)
+map_file=$1
 
 # variable for mentioning pattern of files to be picked
-pattern=.fastq
+pattern=$2
 
 # delimiter for seperating filename
-delim=$(_)
+delim=$3
 #create a for loop to collect the files for which name has to chnaged 
 for i in *${pattern}
         do
