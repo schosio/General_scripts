@@ -1,19 +1,32 @@
 #!/bin/bash
 
-for i in *.fastq
+# path for map file
+map_file=$(finalf.txt)
+
+# variable for mentioning pattern of files to be picked
+pattern=.fastq
+
+# delimiter for seperating filename
+delim=$(_)
+#create a for loop to collect the files for which name has to chnaged 
+for i in *${pattern}
         do
-	name=$(echo $i | awk -F "_" '{print $1}')
-        ext=$(echo $i | awk -F "_" '{print $2}')
-        echo $name
+	# storing first part of the filename which has to checked in mapping file
+	name=$(echo $i | awk -F "${delim}" '{print $1}')
+	# storing second part of the filename which will be used as it is in new filename
+        ext=$(echo $i | awk -F "${delim}" '{print $2}')
+	# starting while to open map file
         while read -r line
                 do
+		# storing first value of given line in the map file
                 first=$( echo $line | awk '{print $1}')
+		# storing second value of the given line in the map file
                 second=$( echo $line | awk '{print $2}')
-                echo $first
-                echo $second
+		# checking the old filename agaist first value in map file
                 if [ $name == $first ]
                 then
-                    	mv ${name}_${ext} ${second}_${ext}
+		# if the condition is true, changing the filename using corresponding second value in the map file 
+                    	mv ${name}${delim}${ext} ${second}${delim}${ext}
                 fi
-                done < finalf.txt
+                done < ${map_file}
         done
