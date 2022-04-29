@@ -17,7 +17,7 @@ temp=0
 while read -r line; do
                         space=$(vdb-dump --info $line | grep size | awk -F ":" '{print $2}'| tr -d ',')
                         temp=$(( $temp + $space ))
-                    done
+                    done < ${srr_acc}
 # spcae in GB
 new=$(echo $temp | awk '{print $1/1024/1024/1024}')
 new=$((new * 10 ))
@@ -34,4 +34,4 @@ while read -r line; do
                         if [ $? -ne 0 ]
                             then
                               fasterq-dump -p $line -O ${out_dir}
-                        done < ${srr_Acc}
+                        done < ${srr_acc}
