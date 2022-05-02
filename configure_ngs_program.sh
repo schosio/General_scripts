@@ -1,29 +1,67 @@
 #!/bin/bash
 
-which anaconda
+which conda || which anaconda > /dev/null 2>&1
 
 if [ $? -ne 0 ]
         then
-            	echo " Anaconda or Miniconda3 not installed "
-                echo " Installing Miniconda "
+            	 echo "
+                      #########################################
+
+                        Anaconda or Miniconda3 not installed
+
+                      #########################################  
+
+                              So let's install it
+
+                      #########################################
+
+                           Installing Miniconda now !!
+
+                      #########################################
+                      
+     For further reading visit https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html
+
+                      #########################################
+                "
+                
                 curl -O https://repo.anaconda.com/miniconda/Miniconda3-py39_4.11.0-Linux-x86_64.sh
-                bash Miniconda3-py39_4.11.0-Linux-x86_64.sh
+                bash Miniconda3-py39_4.11.0-Linux-x86_64.sh -b -p 
                 source ~/.bashrc
-                conda update conda
-                echo " Creating and activating conda environment named ngs"
-                conda create -name ngs python=3
+                ## Creating and activating conda environment named ngs
+                conda create -n ngs python=3
                 conda activate ngs
                 rm Miniconda3-py39_4.11.0-Linux-x86_64.sh
-                echo " Please visit https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html "
+                
+                
         else
-            	echo " Miniconda installed"
-fi
+            	conda create -n ngs python=3
+                conda activate ngs
+                echo "
+                      #########################################
 
-which fastqc
+                        Anaconda or Miniconda3 not installed
+
+                      #########################################  
+                 "
+
+which fastqc > /dev/null 2>&1
 
 if [ $? -ne 0 ]
         then
-            	echo " fastqc not installed "
+            	echo "
+                      #########################################
+
+                              fastqc not installed
+
+                      #########################################  
+
+                              So let's install it
+
+                      #########################################
+
+                           Installing fastqc now !!
+
+                      #########################################
                 conda install -c bioconda fastqc
                 echo " Please visit https://www.bioinformatics.babraham.ac.uk/projects/fastqc/ "
         else
