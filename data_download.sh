@@ -19,14 +19,30 @@ while read -r line; do
                         temp=$(( $temp + $space ))
                     done < ${srr_acc}
 # spcae in GB
-new=$(echo $temp | awk '{print $1/1024/1024/1024}')
-new=$((new * 10 ))
-echo "##############################"
+new=$((temp*10))
+new=$(echo $new | awk '{print $1/1024/1024/1024}')
+
 echo
-echo "Space required for all the samples is"
-echo $new "GB"
 echo
-echo "##############################"
+echo
+echo "###############################################################"
+echo "
+
+
+      	********************************************************
+        *                                                      *
+        *                                                      *
+        * Space required for all the samples is $new GB
+        *                                                      *
+        *                                                      *
+        ********************************************************
+        "
+echo
+echo
+echo "###############################################################"
+echo
+echo
+
 while read -r line; do
                 # Reading each line
                         echo $line
