@@ -2,8 +2,7 @@
 
 which conda || which anaconda > /dev/null 2>&1
 
-if [ $? -ne 0 ]
-        then
+if [[ $? -ne 0 ]]; then
             	 echo "
                       #########################################
 
@@ -51,11 +50,12 @@ if [ $? -ne 0 ]
 
                       #########################################  
                  "
+fi
 
-which fastqc > /dev/null 2>&1
 
-if [ $? -ne 0 ]
-        then
+which fastqc >/dev/null 2>&1
+
+if [[ $? -ne 0 ]]; then
             	echo "
                       #########################################
 
@@ -95,9 +95,8 @@ if [ $? -ne 0 ]
                       "
 fi
 
-which multiqc > /dev/null 2>&1
-if [ $? -ne 0 ]
-        then
+which multiqc >/dev/null 2>&1
+if [[ $? -ne 0 ]]; then
                 echo "
                       #########################################
 
@@ -141,10 +140,9 @@ fi
 
 
 
-which hisat2 > /dev/null 2>&1
+which hisat2 >/dev/null 2>&1
 
-if [ $? -ne 0 ]
-        then
+if [[ $? -ne 0 ]]; then
             	 echo "
                       #########################################
 
@@ -187,10 +185,9 @@ fi
 
 
 
-which samtools > /dev/null 2>&1
+which samtools >/dev/null 2>&1
 
-if [ $? -ne 0 ]
-        then
+if [[ $? -ne 0 ]]; then
             	 echo "
                       #########################################
 
@@ -227,10 +224,9 @@ if [ $? -ne 0 ]
                       "
 fi
 
-which stringtie > /dev/null 2>&1
+which stringtie >/dev/null 2>&1
 
-if [ $? -ne 0 ]
-        then
+if [[ $? -ne 0 ]]; then
             	echo "
                       #########################################
 
@@ -268,8 +264,7 @@ fi
 
 which gffcompare > /dev/null 2>&1
 
-if [ $? -ne 0 ]
-        then
+if [[ $? -ne 0 ]]; then
             	echo "
                       #########################################
 
@@ -306,10 +301,9 @@ if [ $? -ne 0 ]
                       "
 fi
 
-which gffread > /dev/null 2>&1
+which gffread >/dev/null 2>&1
 
-if [ $? -ne 0 ]
-        then
+if [[ $? -ne 0 ]]; then
             	echo "
                       #########################################
 
@@ -346,10 +340,9 @@ if [ $? -ne 0 ]
                       "
 fi
 
-which htseq-count > /dev/null 2>&1
+which htseq-count >/dev/null 2>&1
 
-if [ $? -ne 0 ]
-        then
+if [[ $? -ne 0 ]]; then
             	echo "
                       #########################################
 
